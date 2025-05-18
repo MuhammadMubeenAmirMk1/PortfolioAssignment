@@ -34,6 +34,14 @@ export default function EducationSection() {
             ))}
           </div>
         </div>
+        <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold mb-6 sm:mb-8">
+          <span className="font-sans serif font-normal">Experience</span>
+        </h1>
+        <p className="max-w-md mb-8 sm:mb-16">
+          With over 1.5 years of experience, I bring your vision to life with
+          breathtaking designs and optimized user experience, setting up a path
+          forward for your project.
+        </p>
       </div>
     </section>
   );
