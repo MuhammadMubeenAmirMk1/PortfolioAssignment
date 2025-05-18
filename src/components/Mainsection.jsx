@@ -63,7 +63,7 @@ export default function MainSection() {
 
         {/* Hero Section */}
         <div className="mb-16 sm:mb-32">
-          <div className="text-sm mb-4">(Hi, I'm Muhammad Mubeen Amir)</div>
+          <div className="text-sm mb-4">Hi, I'm Muhammad Mubeen Amir</div>
           <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold mb-6 sm:mb-8">
             <span className="font-serif italic font-normal">UI/UX</span>
             <br className="hidden sm:block" /> Designer
@@ -82,14 +82,17 @@ export default function MainSection() {
           </div>
         </div>
 
-        {/* Services Section */}
+        {/* Experience Section */}
         <div className="mb-16 sm:mb-32">
+          <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold mb-6 sm:mb-8">
+            <span className="font-sans serif font-normal">Experience</span>
+          </h1>
           <p className="max-w-md mb-8 sm:mb-16">
             With over 1.5 years of experience, I bring your vision to life with
             breathtaking designs and optimized user experience, setting up a
             path forward for your project.
           </p>
-
+          {/* Services Section */}
           <div className="space-y-4 sm:space-y-6">
             {["UI DESIGN", "UX design", "BRANDING", "Responsive"].map(
               (service, index) => (
