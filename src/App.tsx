@@ -15,8 +15,11 @@ function App() {
             Mubeen.
           </a>
           <div className="hidden sm:flex items-center gap-4 sm:gap-8">
-            <a href="#work" className="hover:text-gray-300">
+            <a href="#featured-work" className="hover:text-gray-300">
               Work
+            </a>
+            <a href="#education" className="hover:text-gray-300">
+              Education
             </a>
             <a href="#about" className="hover:text-gray-300">
               About
