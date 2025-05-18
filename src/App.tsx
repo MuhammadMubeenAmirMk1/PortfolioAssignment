@@ -3,6 +3,7 @@ import FeaturedWorkSection from "./components/FeaturedWorkSection";
 import RunningProjectsSection from "./components/RunningProjectsSection";
 import TestimonialsSection from "./components/TestimonialsSection";
 import ContactSection from "./components/ContactSection";
+import EducationSection from "./components/EducationSection";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
       </nav>
 
       <MainSection />
+      <EducationSection />
       <FeaturedWorkSection />
       <RunningProjectsSection />
       <TestimonialsSection />
