@@ -9,12 +9,15 @@ function App() {
   return (
     <div className="min-h-screen bg-black text-white">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 py-4 sm:py-8">
+      <nav className="sticky top-0 z-50 bg-black px-4 sm:px-6 py-4 sm:py-8">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <a href="/" className="text-xl sm:text-2xl font-medium">
             Mubeen.
           </a>
           <div className="hidden sm:flex items-center gap-4 sm:gap-8">
+            <a href="#main" className="hover:text-gray-300">
+              Home
+            </a>
             <a href="#featured-work" className="hover:text-gray-300">
               Work
             </a>
