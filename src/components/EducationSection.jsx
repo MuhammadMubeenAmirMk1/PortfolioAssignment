@@ -11,9 +11,9 @@ export default function EducationSection() {
   }, []);
 
   return (
-    <section id="education" className="pt-24 sm:pt-32 px-4 sm:px-6">
+    <section id="education" className="p-24 sm:p-32 px-4 sm:px-6">
       <div className="max-w-7xl mx-auto">
-        <div className="mb-16 sm:mb-32">
+        <div className="mb-16 sm:mb-24">
           <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold mb-10">
             Education
           </h1>
@@ -35,8 +35,8 @@ export default function EducationSection() {
             ))}
           </div>
         </div>
-        <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold mb-6 sm:mb-8">
-          <span className="font-sans serif font-normal">Experience</span>
+        <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold mb-6">
+          Experience
         </h1>
         <p className="max-w-md mb-8 sm:mb-16">
           With over 1.5 years of experience, I bring your vision to life with

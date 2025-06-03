@@ -4,8 +4,8 @@ import cors from "cors";
 import * as dotenv from "dotenv";
 
 import educationRouter from "./routes/educationroutes.js";
-import { educationSeed } from "./data/educationdata.js"; // ⬅️ Seed data
-import Education from "./models/education.js"; // ⬅️ Mongoose model
+import educationdata from "./data/educationdata.js";
+import Education from "./models/education.js";
 
 dotenv.config();
 

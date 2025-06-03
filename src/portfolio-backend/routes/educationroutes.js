@@ -1,5 +1,5 @@
 import express from "express";
-import Education from "../models/education.js"; // ✅ Correctly imported model
+import Education from "../models/education.js";
 
 const router = express.Router();
 
@@ -25,4 +25,4 @@ router.post("/", async (req, res) => {
   }
 });
 
-export default router; // ✅ ESM export
+export default router;
