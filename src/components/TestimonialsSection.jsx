@@ -21,7 +21,7 @@ export default function TestimonialsSection() {
   ];
 
   return (
-    <section className="py-16 sm:py-32 px-4 sm:px-6 bg-black">
+    <section id="about" className="py-16 sm:py-32 px-4 sm:px-6 bg-black">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col lg:flex-row justify-between items-start mb-16 gap-8 lg:gap-16">
           <h2 className="text-5xl sm:text-7xl lg:text-8xl font-bold tracking-tighter leading-none">

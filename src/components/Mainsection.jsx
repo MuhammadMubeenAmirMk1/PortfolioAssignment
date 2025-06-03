@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import "swiper/css";
@@ -19,7 +19,34 @@ const projectImages = [
   },
 ];
 
+const services = [
+  {
+    title: "UI Design",
+    description:
+      "Crafting visually appealing interfaces with usability in mind.",
+  },
+  {
+    title: "UX Design",
+    description: "Focusing on user experience and seamless interaction flow.",
+  },
+  {
+    title: "Branding",
+    description: "Creating consistent brand identity across platforms.",
+  },
+  {
+    title: "Responsive Design",
+    description:
+      "Designing layouts that adapt beautifully to all screen sizes.",
+  },
+];
+
 export default function MainSection() {
+  const [expandedIndex, setExpandedIndex] = useState(null);
+
+  const toggleExpand = (index) => {
+    setExpandedIndex((prev) => (prev === index ? null : index));
+  };
+
   return (
     <section id="main" className="pt-24 sm:pt-32 px-4 sm:px-6">
       <div className="max-w-7xl mx-auto">
@@ -47,7 +74,7 @@ export default function MainSection() {
             </Swiper>
           </div>
 
-          {/* Desktop/Tablet Grid */}
+          {/* Desktop Grid */}
           <div className="hidden sm:grid sm:grid-cols-2 md:grid-cols-3 gap-4">
             {projectImages.map((image, index) => (
               <div key={index} className="aspect-[4/3] relative bg-gray-900">
@@ -63,7 +90,7 @@ export default function MainSection() {
 
         {/* Hero Section */}
         <div className="mb-16 sm:mb-32">
-          <div className="text-sm mb-4">(Hi, I'm Muhammad Mubeen Amir)</div>
+          <div className="text-sm mb-4">Hi, I'm Muhammad Mubeen Amir</div>
           <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold mb-6 sm:mb-8">
             <span className="font-serif italic font-normal">UI/UX</span>
             <br className="hidden sm:block" /> Designer
@@ -82,31 +109,30 @@ export default function MainSection() {
           </div>
         </div>
 
-        {/* Services Section */}
+        {/* Experience Section (with toggle) */}
         <div className="mb-16 sm:mb-32">
-          <p className="max-w-md mb-8 sm:mb-16">
-            With over 1.5 years of experience, I bring your vision to life with
-            breathtaking designs and optimized user experience, setting up a
-            path forward for your project.
-          </p>
-
           <div className="space-y-4 sm:space-y-6">
-            {["UI DESIGN", "UX design", "BRANDING", "Responsive"].map(
-              (service, index) => (
-                <div
-                  key={index}
-                  className="flex justify-between items-center py-4 sm:py-6 border-t border-gray-800"
-                >
-                  <h3 className="text-lg sm:text-xl">{service}</h3>
-                  <a
-                    href="#"
+            {services.map((service, index) => (
+              <div
+                key={index}
+                className="border-t border-gray-800 pt-4 sm:pt-6"
+              >
+                <div className="flex justify-between items-center">
+                  <h3 className="text-lg sm:text-xl">{service.title}</h3>
+                  <button
+                    onClick={() => toggleExpand(index)}
                     className="inline-flex items-center gap-2 text-sm hover:text-gray-300"
                   >
-                    Explore
-                  </a>
+                    {expandedIndex === index ? "Close" : "Explore"}
+                  </button>
                 </div>
-              )
-            )}
+                {expandedIndex === index && (
+                  <p className="mt-3 text-gray-400 text-sm transition-all">
+                    {service.description}
+                  </p>
+                )}
+              </div>
+            ))}
           </div>
         </div>
 
