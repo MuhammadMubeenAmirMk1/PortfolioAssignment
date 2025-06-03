@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 export default function EducationSection() {
-  const educationData = [
-    {
-      degree: "Bachelor's in Computer Science",
-      institution: "Information Technology University",
-      graduationYear: "2025(Expected)",
-    },
-  ];
+  const [educationData, setEducationData] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/api/education")
+      .then((res) => res.json())
+      .then((data) => setEducationData(data))
+      .catch((err) => console.error("Error fetching education data:", err));
+  }, []);
 
   return (
     <section id="education" className="pt-24 sm:pt-32 px-4 sm:px-6">

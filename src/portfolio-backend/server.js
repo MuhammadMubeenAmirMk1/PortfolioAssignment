@@ -1,41 +1,35 @@
-const express = require("express");
-const mongoose = require("mongoose");
-const cors = require("cors");
-require("dotenv").config();
+import express from "express";
+import mongoose from "mongoose";
+import cors from "cors";
+import * as dotenv from "dotenv";
 
-const educationRoutes = require("./routes/educationroutes");
+import educationRouter from "./routes/educationroutes.js";
+import { educationSeed } from "./data/educationdata.js"; // ⬅️ Seed data
+import Education from "./models/education.js"; // ⬅️ Mongoose model
+
+dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 5000;
-
-// Middleware
-app.use(cors({ origin: "http://localhost:3000" }));
+app.use(cors());
 app.use(express.json());
 
-// Routes
-app.use("/api/education", educationRoutes);
-
-// MongoDB Connection
 mongoose
-  .connect(process.env.MONGO_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => {
+  .connect(process.env.MONGO_URI)
+  .then(async () => {
     console.log("MongoDB connected");
-    app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-  })
-  .catch((err) => console.error("DB connection error:", err));
-// Temporarily inserting one record
-const Education = require("./models/Education");
-const existing = await Education.findOne();
-if (!existing) {
-  await Education.create({
-    degree: "Bachelor's in Computer Science",
-    institution: "Information Technology University",
-    graduationYear: "2025 (Expected)",
-  });
-  console.log("Sample education inserted.");
-}
 
+    // Seed only if collection is empty
+    const count = await Education.countDocuments();
+    if (count === 0) {
+      await Education.insertMany(educationSeed);
+      console.log("Education data seeded into MongoDB");
+    } else {
+      console.log("Education collection already contains data.");
+    }
+  })
+  .catch((err) => console.error(err));
+
+app.use("/api/education", educationRouter);
+
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

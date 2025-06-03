@@ -1,9 +1,11 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
-const EducationSchema = new mongoose.Schema({
+const educationSchema = new mongoose.Schema({
   degree: { type: String, required: true },
   institution: { type: String, required: true },
   graduationYear: { type: String, required: true },
 });
 
-module.exports = mongoose.model("Education", EducationSchema);
+const Education = mongoose.model("Education", educationSchema);
+
+export default Education;
